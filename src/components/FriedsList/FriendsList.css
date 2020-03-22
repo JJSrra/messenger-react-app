@@ -1,0 +1,19 @@
+.friends-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.friend-chat-link {
+    margin: 10px 0;
+    padding: 15px;
+    align-self: center;
+    background-color: #008cff;
+    color: white;
+    border-radius: 15px;
+    transition: all ease 0.5s;
+}
+
+.friend-chat-link:hover {
+    background-color: #008cff83;
+    cursor: pointer;
+}

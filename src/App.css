@@ -3,9 +3,11 @@
 }
 
 .app-header {
-  background-color: #25d8ed;
+  background-color: #008cff;
   padding: 20px;
   color: white;
+  margin-bottom: 20px;
+  border-bottom: 5px solid #00345f;
 }
 
 .app-title {

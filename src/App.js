@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import FriendsList from './components/FriedsList/FriendsList';
 
 class App extends Component {
   render() {
@@ -8,9 +9,7 @@ class App extends Component {
         <header className="app-header">
           <h1 className="app-title">Messenger App built with React</h1>
         </header>
-        <p className="app-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <FriendsList/>
       </div>
     );
   }
