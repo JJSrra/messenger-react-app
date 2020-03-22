@@ -8,7 +8,12 @@ class Chat extends Component {
         super();
         this.state = {
             friend: {},
-            messages: [],
+            messages: [
+                { sentByUser: false, text: "Hey!" },
+                { sentByUser: false, text: "What's up?" },
+                { sentByUser: true, text: "How is it going?" },
+                { sentByUser: false, text: "I'm doing fine!" },
+            ],
             messageToSend: ""
         }
     }
@@ -24,7 +29,7 @@ class Chat extends Component {
     sendMessage = async (event) => {
         event.preventDefault();
         if (this.state.messageToSend) {
-            await this.setState({ messages: [...this.state.messages, this.state.messageToSend], messageToSend: "" });
+            await this.setState({ messages: [...this.state.messages, { sentByUser: true, text: this.state.messageToSend }], messageToSend: "" });
             const chat = document.getElementsByClassName("chat-messages-window")[0];
             chat.scrollTop = chat.scrollHeight;
         }
@@ -38,7 +43,7 @@ class Chat extends Component {
                 <div className="chat-messages-window">
                     { this.state.messages.map(message =>
                         <div className="chat-message-row">
-                            <div className="chat-message">{message}</div>
+                            <div className={"chat-message " + (message.sentByUser ? "message-out" : "message-in") }>{message.text}</div>
                         </div>)
                     }
                 </div>
