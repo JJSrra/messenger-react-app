@@ -11,6 +11,7 @@
     color: white;
     border-radius: 15px;
     transition: all ease 0.5s;
+    text-decoration: none;
 }
 
 .friend-chat-link:hover {

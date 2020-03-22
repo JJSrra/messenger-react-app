@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './FriendsList.css';
+import { Link } from 'react-router-dom';
 
 class FriendsList extends Component {
     
@@ -18,7 +19,12 @@ class FriendsList extends Component {
     render() {
         return (
             <div className="friends-list">
-                { this.state.friends.map(friend => <a className="friend-chat-link">Chat with {friend.name}</a>) }
+                { this.state.friends.map(friend => 
+                    <Link className="friend-chat-link"
+                    to={{ pathname: "/chat", state: { friend } }}>
+                        Chat with {friend.name}
+                    </Link>)
+                }
             </div>
         )
     }
