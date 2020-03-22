@@ -21,10 +21,12 @@ class Chat extends Component {
         this.setState({ messageToSend: event.target.value });
     }
 
-    sendMessage = (event) => {
+    sendMessage = async (event) => {
         event.preventDefault();
         if (this.state.messageToSend) {
-            this.setState({ messages: [...this.state.messages, this.state.messageToSend], messageToSend: "" });
+            await this.setState({ messages: [...this.state.messages, this.state.messageToSend], messageToSend: "" });
+            const chat = document.getElementsByClassName("chat-messages-window")[0];
+            chat.scrollTop = chat.scrollHeight;
         }
     }
 
@@ -34,8 +36,10 @@ class Chat extends Component {
                 <Link className="back-btn" to="/">Return</Link>
                 <h2 className="chat-title">{this.state.friend.name}</h2>
                 <div className="chat-messages-window">
-                    { this.state.messages.map(message => 
-                        <div className="chat-message">{message}</div>)
+                    { this.state.messages.map(message =>
+                        <div className="chat-message-row">
+                            <div className="chat-message">{message}</div>
+                        </div>)
                     }
                 </div>
                 <form className="chat-send-message-row">
